@@ -1,7 +1,6 @@
 from csv import DictReader
 from django.core.management import BaseCommand
 
-# Import the model 
 from reviews.models import Genre
 
 
@@ -17,18 +16,15 @@ class Command(BaseCommand):
     help = "Загрузка данных из genre.csv"
 
     def handle(self, *args, **options):
-    
-        # Show this if the data already exist in the database
+
         if Genre.objects.exists():
             print('Данные уже загружены.')
             print(ALREDY_LOADED_ERROR_MESSAGE)
             return
-            
+
         # Show this before loading the data into the database
         print("Загрузка жанров.")
 
-
-        #Code to load the data into database
         for row in DictReader(open('./static/data/genre.csv')):
-            genre=Genre(id=row['id'], name=row['name'], slug=row['slug'])  
+            genre = Genre(id=row['id'], name=row['name'], slug=row['slug'])
             genre.save()

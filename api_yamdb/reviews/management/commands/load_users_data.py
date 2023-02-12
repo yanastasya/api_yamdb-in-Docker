@@ -1,7 +1,6 @@
 from csv import DictReader
 from django.core.management import BaseCommand
 
-# Import the model 
 from reviews.models import User
 
 
@@ -17,20 +16,11 @@ class Command(BaseCommand):
     help = "Загрузка данных из users.csv"
 
     def handle(self, *args, **options):
-    
-        # Show this if the data already exist in the database
-        ##if User.objects.exists():
-          #  print('Данные уже загружены.')
-           # print(ALREDY_LOADED_ERROR_MESSAGE)
-            #return
-            
-        # Show this before loading the data into the database
-        print("Загрузка пользователей.")
 
-
-        #Code to load the data into database
-        for row in DictReader(open('./static/data/users.csv', encoding='utf-8')):
-            user=User(
+        for row in DictReader(
+            open('./static/data/users.csv', encoding='utf-8')
+        ):
+            user = User(
                 id=row['id'],
                 username=row['username'],
                 email=row['email'],
@@ -38,5 +28,5 @@ class Command(BaseCommand):
                 bio=row['bio'],
                 first_name=row['first_name'],
                 last_name=row['last_name']
-            )  
+            )
             user.save()
