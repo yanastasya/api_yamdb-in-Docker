@@ -1,5 +1,5 @@
-from api_yamdb.api_yamdb import settings
-
+#from api_yamdb.api_yamdb import settings
+from django.conf import settings
 
 class TestSettings:
 
