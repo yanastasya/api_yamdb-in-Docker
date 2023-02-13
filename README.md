@@ -6,12 +6,40 @@
 ## Шаблон наполнения env-файла для работы с PostgreSQL:
 файл env следует расположить в той же директории, где находится файл docker-compose.yaml
 
-DB_ENGINE=django.db.backends.postgresql # указываем, что работаем с postgresql
+``` 
+DB_ENGINE=django.db.backends.postgresql # указываем, что работаем с postgresql 
 DB_NAME=postgres # имя базы данных
 POSTGRES_USER=postgres # логин для подключения к базе данных
 POSTGRES_PASSWORD=qwerty # пароль для подключения к БД (установите свой)
 DB_HOST=db # название сервиса (контейнера)
 DB_PORT=5432 # порт для подключения к БД
+```
 
 ## Запуск приложений в контейнерах:
 Для запуска в терминале выполнить команду ``` docker-compose up -d --build ``` из дериктории, где находится файл docker-compose.yaml
+
+После запуска контейнеров выполните команды:
+- Вход в контейнер web ``` docer-compose exec web bash ```
+- переход в директорию с manage.py: ``` cd api_yamdb ```
+- Выполнить миграции ``` python manage.py migrate ```
+- Собрать статику ``` python manage.py collectstatic --no-input ```
+- создайте суперпользователя: ``` python manage.py createsuperuser```
+
+- Для импорта данных в БД из файлов CSV:
+
+``` python manage.py load_category_data ```
+``` python manage.py load_genre_data ```
+``` python manage.py load_users_data ```
+``` python manage.py load_title_data ```
+``` python manage.py load_genre_title_data ```
+``` python manage.py load_reviews_data ```
+``` python manage.py load_comments_data ```
+
+## После запуска:
+Смотри документацию проекта с описанием доступных эндпоинтов по ссылке http://localhost/redoc
+Так же можно зайти в админку http://localhost/admin 
+
+
+
+
+
