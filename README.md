@@ -21,23 +21,12 @@ DB_PORT=5432 # порт для подключения к БД
 Для запуска в терминале выполнить команду ``` docker-compose up -d --build ``` из дериктории, где находится файл docker-compose.yaml
 
 После запуска контейнеров выполните команды:
-- Вход в контейнер web ``` docer-compose exec web bash ```
-- переход в директорию с manage.py: ``` cd api_yamdb ```
+- Вход в контейнер web ``` dokcer-compose exec web bash ```
 - Выполнить миграции ``` python manage.py migrate ```
 - Собрать статику ``` python manage.py collectstatic --no-input ```
 - создайте суперпользователя: ``` python manage.py createsuperuser```
 
-- Для импорта данных в БД из файлов CSV:
-
-``` python manage.py load_category_data ```
-``` python manage.py load_genre_data ```
-``` python manage.py load_users_data ```
-``` python manage.py load_title_data ```
-``` python manage.py load_genre_title_data ```
-``` python manage.py load_reviews_data ```
-``` python manage.py load_comments_data ```
-
-## После запуска:
+## После запуска :
 Смотри документацию проекта с описанием доступных эндпоинтов по ссылке http://localhost/redoc
 Так же можно зайти в админку http://localhost/admin 
 
