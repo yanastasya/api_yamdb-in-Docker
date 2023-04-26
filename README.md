@@ -22,3 +22,19 @@ DB_PORT=5432 # порт для подключения к БД
 
 - Для запуска в терминале выполнить команду ``` docker-compose up -d --build ``` из дериктории, где находится файл docker-compose.yaml
 
+- После сбора образов и запуска контейнеров необходимо зайти в контейнер web, выполнить миграции, собрать статику, создать суперпользователя и загрузить данные в БД из файлов CSV. Для этого последовательно выполнить команды:
+- Выполнить миграции:
+``` 
+docker-compose exec web bash
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py collectstatic --no-input
+
+python manage.py load_category_data
+python manage.py load_genre_data
+python manage.py load_users_data
+python manage.py load_title_data
+python manage.py load_genre_title_data
+python manage.py load_rewiews_data
+python manage.py load_comments_data
+```
