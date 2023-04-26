@@ -1,5 +1,12 @@
-## Проект YaMDb: краткое описание.
-[здесь](https://github.com/yanastasya/api_yamdb) представлен api для базы данных с отзывами на произведения. В данном репозитории этот проект упакован в контейнеры nginx, db (PostegresSQL) и web (само приложение). Данная инфраструктура позволяет развернуть проект на вашем ПК без необходимости разворота venv, установки зависимостей, базы данных на вашем ПК. 
+Учебный проект в рамках курса Backend Python-разработчик от Яндекс.Практикум. Упаковка проекта в контейнеры.
+
+[![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-464646?style=flat-square&logo=PostgreSQL)](https://www.postgresql.org/)
+[![Nginx](https://img.shields.io/badge/-NGINX-464646?style=flat-square&logo=NGINX)](https://nginx.org/ru/)
+[![gunicorn](https://img.shields.io/badge/-gunicorn-464646?style=flat-square&logo=gunicorn)](https://gunicorn.org/)
+[![docker](https://img.shields.io/badge/-Docker-464646?style=flat-square&logo=docker)](https://www.docker.com/)
+
+# Проект YaMDb в контейнерах.
+В данном репозитории проект [API_yamDB](https://github.com/yanastasya/api_yamdb) упакован в контейнеры nginx, db (PostegresSQL) и web (само приложение). Данная инфраструктура позволяет развернуть проект на вашем ПК без необходимости разворота venv, установки зависимостей, базы данных на вашем ПК. 
 
 # Для запуска:
 - скачать репозиторий
